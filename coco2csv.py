@@ -4,9 +4,16 @@ convert the result of coco to csv file.
 import pandas as pd
 import json
 import os
+import argparse
 
-file_name = 'record_faster'
-out_dir = 'faster'
+parser = argparse.ArgumentParser()
+parser.add_argument('-f', '--file', help="name of input file.", default='record', type=str)
+parser.add_argument('-o', '--out', help="directory of output.", default='record', type=str)
+
+args = parser.parse_args()
+
+file_name = args.file
+out_dir = args.out
 
 table = pd.DataFrame()
 
